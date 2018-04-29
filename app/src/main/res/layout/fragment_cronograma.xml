@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.CronogramaFragment"
+    android:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/tv_apres_cronograma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Programação de Sexta"
+        android:textSize="18sp"
+        android:textColor="@color/primaryTextColor"
+        android:layout_marginLeft="10dp"
+        android:layout_above="@+id/lv_cronograma"
+        android:layout_toStartOf="@+id/im_add_cronograma"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"/>
+
+    <ImageView
+        android:id="@+id/im_add_cronograma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_add"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/lv_cronograma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_add_cronograma"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:divider="@color/secondaryDarkColor"
+        android:dividerHeight="0.5dp">
+
+    </ListView>
+
+</RelativeLayout>

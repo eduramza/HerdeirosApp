@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.AdicionarHinoFragment">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Novo Hino"
+        android:textSize="@dimen/titulo_adicionando_hino"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_num_hino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:errorEnabled="true"
+        android:layout_below="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8">
+
+        <EditText
+            android:id="@+id/et_num_hino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:inputType="number"
+            android:hint="Número"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_titulo_hino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_below="@+id/ti_num_hino"
+        android:layout_alignStart="@+id/ti_cantor_hino">
+
+        <EditText
+            android:id="@+id/et_titulo_hino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Hino"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_cantor_hino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_below="@+id/ti_titulo_hino"
+        android:layout_alignStart="@+id/ti_url_video">
+
+        <EditText
+            android:id="@+id/et_cantor_hino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Cantor"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_url_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ti_cantor_hino"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/mrg_hino_frag"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_url_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Url do Youtube"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ti_url_video"
+        android:layout_marginTop="@dimen/mrg_hino_frag"
+        android:text="@string/bt_salvar"
+        android:textSize="21sp"
+        android:textColor="@color/primaryTextColor"
+        android:layout_alignEnd="@+id/ti_url_video"
+        android:layout_alignStart="@+id/ti_url_video" />
+
+</RelativeLayout>

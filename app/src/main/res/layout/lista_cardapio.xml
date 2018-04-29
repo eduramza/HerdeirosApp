@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+
+    <TextView
+        android:id="@+id/tv_refeicao_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refeição"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/menu_subtitulo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_ingredientes_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="O que teremos?"
+        android:textSize="@dimen/menu_conteudo"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_refeicao_lista"
+        />
+
+</RelativeLayout>

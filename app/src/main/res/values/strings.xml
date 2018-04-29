@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">HerdeirosApp</string>
+    <string name="grupo1">Emanuel</string>
+    <string name="grupo2">Gideões</string>
+    <string name="mocidade">Mocidade</string>
+    <string name="min_louvor">Ministério Efraim</string>
+    <string name="min_louvor_abreviado">Min. Efraim</string>
+    <string name="dia1">24/11</string>
+    <string name="dia2">25/11</string>
+    <string name="dia3">26/11</string>
+    <string name="sexta">Sexta</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+
+    <string name="bt_validar">Validar</string>
+    <string name="bt_enviar">Enviar</string>
+    <string name="bt_salvar">Salvar</string>
+    <string name="bt_cancelar">Cancelar</string>
+    <string name="title_activity_versiculo">Versiculo do Dia</string>
+    <string name="bt_continuar">Prosseguir</string>
+    <string name="title_activity_calendario">Calendario</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_perfil">Perfil</string>
+    <string name="title_activity_retiro">Retiro 2017</string>
+    <string name="title_activity_galeria">Galeria</string>
+    <string name="info_versiculo">(Exemplo) Genesis 1:1 ou Gn 1:1</string>
+    <string name="titulo_cardapio">Menu</string>
+    <string name="title_activity_mocidade">Pasta Mocidade</string>
+    <string name="title_activity_letra_hinos">Hino</string>
+    <string name="add_album">Novo Album</string>
+
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="id_video_player">youtube_player</string>
+    <string name="facebook_app_id">482939932088260</string>
+    <string name="fb_login_protocol_scheme">fb482939932088260</string>
+
+</resources>

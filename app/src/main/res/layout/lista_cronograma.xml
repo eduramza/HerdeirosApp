@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_hora_inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17:30"
+        android:textSize="@dimen/tam_horarios"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:id="@+id/tv_hora_fim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22:00"
+        android:textSize="@dimen/tam_horarios"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/tv_hora_inicio"/>
+
+    <TextView
+        android:id="@+id/tv_atividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Culto de Sexta vai ser storuuuu hein naõ percaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:textSize="@dimen/tam_desc_evento"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_alignBaseline="@+id/tv_hora_inicio"
+        android:layout_alignBottom="@+id/tv_hora_inicio"
+        android:layout_toEndOf="@+id/tv_hora_inicio"
+        android:layout_marginStart="18dp" />
+
+</RelativeLayout>

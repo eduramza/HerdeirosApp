@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mn_voltar"
+        android:title="Voltar"
+        android:icon="@drawable/ic_back_left" />
+    <item
+        android:id="@+id/mn_ouvir_letra"
+        android:title="Ouvir"
+        android:icon="@drawable/ic_video"/>
+    <item
+        android:id="@+id/mn_compartilhar_letra"
+        android:title="Compartilhar"
+        android:icon="@drawable/ic_action_share" />
+
+</menu>

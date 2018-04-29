@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.EventoDialogFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_titulodialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Novo Evento"
+        android:textSize="25sp"
+        android:gravity="center"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_titulo_evento"
+        android:layout_width="@dimen/tam_edits_dialog"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_titulo_evento"
+            android:layout_width="@dimen/tam_edits_dialog"
+            android:layout_height="wrap_content"
+            android:hint="Nome do Evento"
+            android:maxLines="1"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_datainicio_evento"
+        android:layout_width="@dimen/tam_edits_dialog"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mrg_top_edits"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_datainicio_evento"
+            android:layout_width="@dimen/tam_edits_dialog"
+            android:layout_height="wrap_content"
+            android:hint="Inicio do Evento"
+            android:inputType="datetime"
+            android:maxLines="1"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_datafim_evento"
+        android:layout_width="@dimen/tam_edits_dialog"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mrg_top_edits"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_datafim_evento"
+            android:layout_width="@dimen/tam_edits_dialog"
+            android:layout_height="wrap_content"
+            android:hint="Fim do evento"
+            android:inputType="datetime"
+            android:maxLines="1"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_descricao_dialog"
+        android:layout_width="@dimen/tam_edits_dialog"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_descricao_dialog"
+            android:layout_width="@dimen/tam_edits_dialog"
+            android:layout_height="@dimen/alt_edit_descricao"
+            android:hint="Sobre o evento"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/tam_edits_dialog"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_cancelar_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:layout_weight="1"
+            android:textColor="@color/primaryTextColor"/>
+
+        <Button
+            android:id="@+id/bt_adicionar_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicionar"
+            android:layout_weight="1"
+            android:textColor="@color/primaryTextColor"/>
+
+    </LinearLayout>
+
+</LinearLayout>

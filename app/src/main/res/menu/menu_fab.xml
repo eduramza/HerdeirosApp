@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fab_mn_compartilhar"
+        android:icon="@drawable/ic_action_share"
+        android:title="WhatsApp"/>
+
+    <item
+        android:id="@+id/fab_mn_adicinarV"
+        android:icon="@drawable/ic_note_add"
+        android:title="Novo Versiculo" />
+
+    <item
+        android:id="@+id/fab_mn_avancar"
+        android:icon="@drawable/ic_action_goright"
+        android:title="Prosseguir" />
+
+</menu>

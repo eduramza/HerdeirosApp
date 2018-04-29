@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.AddCronogramaFragment"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_hora_inicio"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_hora_inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hora do inicio"
+            android:inputType="time"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_hora_fim"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ti_hora_inicio"
+        android:layout_marginLeft="5dp"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_hora_fim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hora término"
+            android:inputType="time"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_atividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ti_hora_inicio"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/ti_hora_fim"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/et_atividade"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:hint="Atividade"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/sp_categoria"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ti_atividade"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/ti_atividade" />
+
+    <Button
+        android:id="@+id/bt_salvar_cronograma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Salvar"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="21sp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sp_categoria"
+        android:layout_alignEnd="@+id/sp_categoria" />
+
+
+</RelativeLayout>

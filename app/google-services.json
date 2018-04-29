@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "415005802793",
+    "firebase_url": "https://herdeirosapp.firebaseio.com",
+    "project_id": "herdeirosapp",
+    "storage_bucket": "herdeirosapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415005802793:android:d97839b32935165b",
+        "android_client_info": {
+          "package_name": "com.ramattecgmail.rafah.herdeirosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415005802793-d2834el9s6eq7qaomfln88asgmggg6ug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ramattecgmail.rafah.herdeirosapp",
+            "certificate_hash": "e8d13a5ff16be59eac5837fb737f32295add1212"
+          }
+        },
+        {
+          "client_id": "415005802793-79og5rntqp0ti2unp3uad1v9d3ieluna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ramattecgmail.rafah.herdeirosapp",
+            "certificate_hash": "485802d29a4591b800274610a31f92a12a1b6771"
+          }
+        },
+        {
+          "client_id": "415005802793-9dmkkoqaqpp6k9s9j2f55mfmvhuc2i3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEYATKtHFG294mwbmx8dDkeRYYxmC0cU0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415005802793-9dmkkoqaqpp6k9s9j2f55mfmvhuc2i3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

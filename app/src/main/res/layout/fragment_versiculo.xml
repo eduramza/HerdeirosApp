@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.VersiculoFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_texto"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp">
+
+        <EditText
+            android:id="@+id/et_mensagem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:hint="Insira a Mensagem"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_versiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ti_texto"
+        android:layout_below="@+id/ti_texto"
+        android:layout_marginTop="15dp">
+
+        <EditText
+            android:id="@+id/et_versiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Versiculo ou Pensador" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/info_versiculo"
+        android:textSize="@dimen/info_versiculo"
+        android:textStyle="bold|italic"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_alignStart="@+id/ti_versiculo"
+        android:layout_below="@+id/ti_versiculo"/>
+
+    <Button
+        android:id="@+id/bt_salvar_versiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_salvar"
+        android:textSize="@dimen/texto_padrao_botao"
+        android:textColor="@color/primaryTextColor"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_alignEnd="@+id/ti_versiculo"/>
+
+
+</RelativeLayout>

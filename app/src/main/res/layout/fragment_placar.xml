@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.PlacarFragment"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emanuel"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gideões"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_emanuel"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:ems="4"
+            android:inputType="number"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_gideoes"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="number" />
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_salvar_placar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar Placar"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="19sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

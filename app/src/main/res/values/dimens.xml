@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TELA DE LOGIN E VERSICULO-->
+    <dimen name="img_logo">200dp</dimen>
+    <dimen name="mrg_para_logo">40dp</dimen>
+    <dimen name="tam_et_ddd">70dp</dimen>
+    <dimen name="tam_tv_versiculo">40sp</dimen>
+    <dimen name="img_social_media">50dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tv_versiculo">22sp</dimen>
+    <dimen name="tam_caixa_versiculo">250dp</dimen>
+    <dimen name="info_versiculo">10sp</dimen>
+    <dimen name="texto_padrao_botao">21sp</dimen>
+
+    <!-- MAIN ACTIVITY -->
+    <dimen name="card_heigth_principal">175dp</dimen>
+    <dimen name="card_heigth_demais">100dp</dimen>
+    <dimen name="card_width_meio">150dp</dimen>
+
+    <dimen name="largura_botoes">200dp</dimen>
+    <dimen name="altura_botoes">70dp</dimen>
+    <dimen name="texto_botoes">22sp</dimen>
+    <dimen name="mrg_hino_frag">5dp</dimen>
+
+    <!--Activity e DialogFragment CALENDÁRIO -->
+    <dimen name="altura_calendario">200dp</dimen>
+    <dimen name="tam_edits_dialog">250dp</dimen>
+    <dimen name="alt_edit_descricao">60dp</dimen>
+    <dimen name="mrg_top_edits">2dp</dimen>
+
+    <!-- PERFIL ACTIVITY -->
+    <dimen name="tam_img_perfil">136dp</dimen>
+    <dimen name="tv_mrg_top">12dp</dimen>
+    <dimen name="tv_mrg_start">20dp</dimen>
+    <dimen name="tv_mrg_curta">3dp</dimen>
+    <dimen name="tam_font_tv">23sp</dimen>
+
+    <!--RETIRO ACTIVITY -->
+    <dimen name="mrg_top_card">16dp</dimen>
+    <dimen name="mrg_left_card">28dp</dimen>
+    <dimen name="alt_card_placar">120dp</dimen>
+    <dimen name="tam_im_cardapio">76dp</dimen>
+    <dimen name="tam_tv_cardapio">26dp</dimen>
+    <dimen name="tam_nomes_equipes">25sp</dimen>
+    <dimen name="tam_atualizacao_placar">10sp</dimen>
+
+    <!--FRAGMENT CARDAPIO -->
+    <dimen name="menu_titulo">40sp</dimen>
+    <dimen name="menu_subtitulo">29dp</dimen>
+    <dimen name="menu_conteudo">21sp</dimen>
+    <dimen name="componentes">220dp</dimen>
+
+    <!--ACTIVITY MOCIDADE -->
+    <dimen name="numero_hino">42sp</dimen>
+    <dimen name="nome_hino">21sp</dimen>
+    <dimen name="cantor">17sp</dimen>
+    <dimen name="titulo_adicionando_hino">26sp</dimen>
+
+    <!--FRAGMENT CRONOGRAMA-->
+    <dimen name="tam_horarios">24sp</dimen>
+    <dimen name="tam_desc_evento">21sp</dimen>
+
+</resources>
