@@ -1,4 +1,4 @@
-package com.ramattecgmail.rafah.herdeirosapp.Fragments;
+package com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts;
 
 
 import android.annotation.SuppressLint;

@@ -1,11 +1,8 @@
 package com.ramattecgmail.rafah.herdeirosapp.Activitys;
 
 import android.content.DialogInterface;
-import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,18 +16,15 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ramattecgmail.rafah.herdeirosapp.Adapters.EventoAdapter;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.EventoDialogFragment;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.EventoDialogFragment;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Eventos;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;
 
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CalendarioActivity extends AppCompatActivity  {
     //ATRIBUTOS

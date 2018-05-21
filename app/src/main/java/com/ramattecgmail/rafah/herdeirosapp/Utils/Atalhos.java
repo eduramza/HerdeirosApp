@@ -5,16 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Toast;
 
-import com.ramattecgmail.rafah.herdeirosapp.Activitys.CalendarioActivity;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.SharedPreferencias;
-import com.ramattecgmail.rafah.herdeirosapp.Models.Galeria;
-import com.ramattecgmail.rafah.herdeirosapp.R;
 
-import java.security.PublicKey;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -130,5 +123,25 @@ public final class Atalhos {
             return true;
         }
         return false;
+    }
+    //Sem acesso a internet
+    public static void semAcessoInternet(Context context){
+        //CONFIGURANDO O ALERT
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+
+        alert.setTitle("Sem conexão com a Internet");
+        alert.setMessage("Não foi possivel fazer o download, por favor, verifique a conexão com a internet");
+        alert.setCancelable(false);
+
+        alert.setNeutralButton("Entendi", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Apenas fecha o alert
+            }
+        });
+
+        //materializando o alert
+        alert.create();
+        alert.show();
     }
 }

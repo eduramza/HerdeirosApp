@@ -11,8 +11,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.StorageReference;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,11 +31,12 @@ public class Usuarios {
     String nome;
     //String telefone;
     String email;
-    //String foto_url;
+    String foto_url;
     String nivel;
+    String apelido;
     //String grupo;
-
     StorageReference storageReference;
+    DatabaseReference databaseReference;
 
     public Usuarios(){
 
@@ -47,7 +50,7 @@ public class Usuarios {
 
     public void atualizar(String id){
         //CRIANDO A REFERENCIA AO DADO QUE SERÁ ATUALIZADO
-        DatabaseReference reference = ConfiguracaoFirebase.getFirebaseReference().child("USUARIOS")
+        databaseReference = ConfiguracaoFirebase.getFirebaseReference().child("USUARIOS")
                 .child(id);
 
         //CRIANDO O HASHMAP QUE ARMAZENA OS VALORES
@@ -56,16 +59,21 @@ public class Usuarios {
         map.put("email", getEmail());
         //map.put("telefone", getTelefone());
         //map.put("fotoPerfil", getFoto_url());
-        map.put("cargo", getNivel());
+        map.put("nivel", getNivel());
+        map.put("apelido", getApelido());
 
         //COMANDO QUE MANDA ATUALIZAÇÃO PARA O FIREBASE
-        reference.updateChildren(map);
+        databaseReference.updateChildren(map);
+
+    }
+
+    public final void uploadFoto(byte[] byteFoto){
 
     }
 
     public void recuperarFoto(final Context context, final ImageView imPerfil, String cripto) {
         //Recuperando a imagem no storage
-        storageReference = ConfiguracaoFirebase.getStorageReference().child("Perfil").child(cripto);
+        storageReference = ConfiguracaoFirebase.getStorageReference().child(cripto);
 
         //Recuperando ela em formato arquivo
         try{
@@ -73,10 +81,19 @@ public class Usuarios {
             storageReference.getFile(arquivo).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                   //Recuperando a imagem com picasso
+                    //Arredondando a imagem com Picasso
+                    Transformation transformation = new RoundedTransformationBuilder()
+                            .cornerRadius(30)
+                            .oval(true)
+                            .build();
+
+                    //Recuperando a imagem com picasso
                     Picasso.with(context)
                             .load(arquivo)
+                            .fit()
+                            .transform(transformation)
                             .into(imPerfil);
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -124,5 +141,21 @@ public class Usuarios {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getFoto_url() {
+        return foto_url;
+    }
+
+    public void setFoto_url(String foto_url) {
+        this.foto_url = foto_url;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
 }

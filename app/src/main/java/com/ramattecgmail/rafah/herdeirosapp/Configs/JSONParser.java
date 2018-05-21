@@ -51,7 +51,6 @@ public class JSONParser {
 
             SchemeRegistry registry = new SchemeRegistry();
             registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-//            registry.register(new Scheme("https", sf, 443));
 
             ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
 

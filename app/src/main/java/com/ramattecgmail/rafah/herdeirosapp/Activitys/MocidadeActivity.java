@@ -12,25 +12,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ramattecgmail.rafah.herdeirosapp.Adapters.HinosAdapter;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.SharedPreferencias;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.AdicionarHinoFragment;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.AdicionarHinoFragment;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Hinos;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;
 
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
 
 public class MocidadeActivity extends AppCompatActivity {
     //ATRIBUTOS
@@ -45,7 +42,7 @@ public class MocidadeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mocidade);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -107,7 +104,6 @@ public class MocidadeActivity extends AppCompatActivity {
             }
         });
 
-        //carregarHinos();
     }
 
     /******************************* METODOS *********************************/

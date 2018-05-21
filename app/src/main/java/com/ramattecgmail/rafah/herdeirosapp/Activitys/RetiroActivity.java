@@ -1,6 +1,5 @@
 package com.ramattecgmail.rafah.herdeirosapp.Activitys;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,24 +9,18 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.CardapioFragment;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.CronogramaFragment;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.PlacarFragment;
-import com.ramattecgmail.rafah.herdeirosapp.Models.Cardapio;
-import com.ramattecgmail.rafah.herdeirosapp.Models.Cronograma;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.CardapioFragment;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.CronogramaFragment;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.PlacarFragment;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Placar;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;

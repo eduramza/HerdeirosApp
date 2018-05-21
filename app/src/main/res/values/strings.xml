@@ -31,9 +31,21 @@
     <string name="title_activity_letra_hinos">Hino</string>
     <string name="add_album">Novo Album</string>
 
+    <!-- STRINGS PARA A APLICAÇÃO 2.0 -->
+    <string name="login_face">FACEBOOK</string>
+    <string name="login_google">GOOGLE</string>
+    <string name="novo_versiculo">Novo</string>
+    <string name="avancar">Continuar</string>
+
+    <!--STRING PARA BIBLIOTECAS DE TERCEIROS -->
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="id_video_player">youtube_player</string>
-    <string name="facebook_app_id">482939932088260</string>
-    <string name="fb_login_protocol_scheme">fb482939932088260</string>
+    <string name="facebook_app_id">850320078488281</string>
+    <string name="fb_login_protocol_scheme">fb850320078488281</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="quickstart_message">Click the SUBSCRIBE TO NEWS button below to subscribe to the
+        news topic. Messages sent to the news topic will be received. The LOG TOKEN button logs the
+InstanceID token to logcat.</string>
 
 </resources>

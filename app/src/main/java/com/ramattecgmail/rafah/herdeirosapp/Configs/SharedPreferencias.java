@@ -2,6 +2,7 @@ package com.ramattecgmail.rafah.herdeirosapp.Configs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 
 /**
@@ -21,6 +22,7 @@ public class    SharedPreferencias {
     private final String CHAVE_NIVEL = "nivel";
     private final String CHAVE_NOME = "nome";
     private final String CHAVE_EMAIL = "email";
+    private final String CHAVE_APELIDO = "apelido";
 
     //para salvar o hino selecionado
     private final String CHAVE_NUM = "numero";
@@ -35,12 +37,13 @@ public class    SharedPreferencias {
     }
 
     //SALVANDO DADOS DO USUÁRIO
-    public void salvarUsuarioPreferences(String id, String nome, String grupo, String nivel, String email){
+    public void salvarUsuarioPreferences(String id, String nome, String grupo, String nivel, String email, String apelido){
         editor.putString(CHAVE_ID, id);
         editor.putString(CHAVE_NOME, nome);
         editor.putString(CHAVE_GRUPO, grupo);
         editor.putString(CHAVE_NIVEL, nivel);
         editor.putString(CHAVE_EMAIL, email);
+        editor.putString(CHAVE_APELIDO, apelido);
         editor.commit();
     }
 
@@ -55,6 +58,10 @@ public class    SharedPreferencias {
     //RECUPERANDO OS DADOS DO USUÁRIO
     public String getCHAVE_NOME(){
         return preferences.getString(CHAVE_NOME, null);
+    }
+
+    public String getCHAVE_APELIDO(){
+        return preferences.getString(CHAVE_APELIDO, null);
     }
 
     public String getCHAVE_ID(){

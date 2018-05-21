@@ -1,4 +1,4 @@
-package com.ramattecgmail.rafah.herdeirosapp.Fragments;
+package com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts;
 
 
 import android.os.Bundle;
@@ -61,9 +61,9 @@ public class VersiculoFragment extends DialogFragment {
             versiculos.setDataPostagem(Atalhos.getHoje());
             versiculos.setMensagem(etMensagem.getText().toString());
             versiculos.setVersiculo(etVersiculo.getText().toString());
-            versiculos.setUsuPostagem(user.getCHAVE_NOME());
+            versiculos.setUsuPostagem(user.getCHAVE_ID());
             versiculos.salvarVersiulo();
-            Toast.makeText(getActivity(), "Versiculo adicionado com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Mensagem adicionado com sucesso!", Toast.LENGTH_SHORT).show();
             etMensagem.setText("");
             etVersiculo.setText("");
         } else {

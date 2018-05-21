@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.CardapioFragment"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.CardapioFragment"
     android:background="@drawable/fundo_cardapio">
 
     <TextView

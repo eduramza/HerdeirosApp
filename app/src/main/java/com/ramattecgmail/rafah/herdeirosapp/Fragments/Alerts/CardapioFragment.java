@@ -1,4 +1,4 @@
-package com.ramattecgmail.rafah.herdeirosapp.Fragments;
+package com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts;
 
 
 import android.graphics.Typeface;
@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -20,7 +18,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.ramattecgmail.rafah.herdeirosapp.Activitys.MainActivity;
 import com.ramattecgmail.rafah.herdeirosapp.Adapters.CardapioAdapter;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Cardapio;
@@ -32,7 +29,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

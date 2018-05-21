@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.AdicionarHinoFragment">
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.AdicionarHinoFragment">
 
 
     <TextView
@@ -100,5 +100,13 @@
         android:textColor="@color/primaryTextColor"
         android:layout_alignEnd="@+id/ti_url_video"
         android:layout_alignStart="@+id/ti_url_video" />
+
+    <ProgressBar
+        android:id="@+id/pb_hino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

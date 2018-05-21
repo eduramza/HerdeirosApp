@@ -15,6 +15,7 @@ public final class ConfiguracaoFirebase {
     private static FirebaseDatabase database;
     private static FirebaseStorage storage;
     static DatabaseReference reference;
+    private static FirebaseStorage firebaseStorage;
     private static StorageReference storageReference;
     private static FirebaseAuth autenticacao;
 
@@ -33,10 +34,19 @@ public final class ConfiguracaoFirebase {
     public static StorageReference getStorageReference(){
         if (storageReference == null){
             storage = FirebaseStorage.getInstance();
-            storageReference = storage.getReferenceFromUrl("gs://herdeirosapp.appspot.com/");
-            //.child("GALERIA");
+            storageReference = storage.getReferenceFromUrl("gs://herdeirosapp.appspot.com/")
+                    .child("Perfil");
+
         }
         return storageReference;
+    }
+
+    //Fazendo validação para armazenamento de imagens
+    public static FirebaseStorage getFirebaseStorage(){
+        if (firebaseStorage == null){
+            firebaseStorage = FirebaseStorage.getInstance();
+        }
+        return firebaseStorage;
     }
 
     public static FirebaseDatabase getDatabase(){

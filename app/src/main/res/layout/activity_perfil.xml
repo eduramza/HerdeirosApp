@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.PerfilActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_perfil_perfil"
+        android:layout_width="@dimen/tam_img_perfil"
+        android:layout_height="@dimen/tam_img_perfil"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/mrg_top_img_perfil"
+        android:src="@drawable/ic_person"
+        android:background="@color/disabled"
+        android:scaleType="fitCenter"
+        app:riv_mutate_background="true"
+        app:riv_corner_radius="30dp"
+        app:riv_tile_mode="clamp"
+        app:riv_oval="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190dp"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/pad_horizontal_layout_perfil"
+        android:paddingRight="@dimen/pad_horizontal_layout_perfil"
+        android:paddingTop="@dimen/pad_horizontal_layout_perfil">
+
+        <EditText
+            android:id="@+id/et_nome_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h_edits_perfil"
+            android:paddingLeft="@dimen/pad_lft_edits"
+            android:background="@drawable/edits_padrao"
+            android:hint="Nome Completo"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/et_apelido_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h_edits_perfil"
+            android:layout_marginTop="@dimen/mrg_top_edits_perfil"
+            android:paddingLeft="@dimen/pad_lft_edits"
+            android:background="@drawable/edits_padrao"
+            android:hint="Apelido"
+            android:enabled="false" />
+
+        <EditText
+            android:id="@+id/et_cargo_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h_edits_perfil"
+            android:layout_marginTop="@dimen/mrg_top_edits_perfil"
+            android:paddingLeft="@dimen/pad_lft_edits"
+            android:background="@drawable/edits_padrao"
+            android:hint="Cargo"
+            android:enabled="false"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_foto_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:visibility="invisible"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_action_edit" />
+
+</FrameLayout>

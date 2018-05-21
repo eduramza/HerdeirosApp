@@ -1,9 +1,7 @@
-package com.ramattecgmail.rafah.herdeirosapp.Fragments;
+package com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts;
 
 
-import android.app.Dialog;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +19,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ramattecgmail.rafah.herdeirosapp.Adapters.CronogramaAdapter;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
-import com.ramattecgmail.rafah.herdeirosapp.Configs.CriptografiaBase64;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Cronograma;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;

@@ -1,9 +1,11 @@
-package com.ramattecgmail.rafah.herdeirosapp.Fragments;
+package com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts;
 
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
@@ -13,11 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.ramattecgmail.rafah.herdeirosapp.Configs.JSONParser;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Hinos;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +34,7 @@ public class AdicionarHinoFragment extends DialogFragment {
     private EditText etNumero, etHino, etCantor, etURL;
     private Button btSalvar;
     private TextInputLayout tiNum, tiHino, tiCantor, tiUrl;
+    private ProgressBar pbHino;
 
     public AdicionarHinoFragment() {
         // Required empty public constructor
@@ -48,6 +56,7 @@ public class AdicionarHinoFragment extends DialogFragment {
         tiHino = view.findViewById(R.id.ti_titulo_hino);
         tiCantor = view.findViewById(R.id.ti_cantor_hino);
         tiUrl = view.findViewById(R.id.ti_url_video);
+        pbHino = view.findViewById(R.id.pb_hino);
 
         //EVENTO DE CLICK NO BOTÃO
         btSalvar.setOnClickListener(new View.OnClickListener() {
@@ -69,18 +78,18 @@ public class AdicionarHinoFragment extends DialogFragment {
                     //Verifica conexão com a internet primeiro
                     if (Atalhos.verificarConexao(getActivity()) == true){
 
-                        //Salvando hino
-                        Hinos hinos = new Hinos();
-                        hinos.setNumero(etNumero.getText().toString());
-                        hinos.setTitulo(etHino.getText().toString());
-                        hinos.setCantor(etCantor.getText().toString());
-                        hinos.setUrl(etURL.getText().toString());
-                        hinos.salvarHinos();
+                        //Baixando a letra do hino e salvando direto no firebase
+                        String uri = Uri.parse("http://api.vagalume.com.br/search.php")
+                                .buildUpon()
+                                .appendQueryParameter("mus", etHino.getText().toString())
+                                .appendQueryParameter("art", etCantor.getText().toString())
+                                .appendQueryParameter("apikey", Atalhos.VAGALUME_KEY)
+                                .build().toString();
 
-                        dismiss();
-
+                        if (uri != null){
+                            new vagalumeAsyncTask().execute(uri);
+                        }
                     }
-
                 }
             }
         });
@@ -88,4 +97,48 @@ public class AdicionarHinoFragment extends DialogFragment {
         return view;
     }
 
+    /*************************** CLASS PARA DOWNLOAD DA LETRA DO HINO ***********************/
+    private class vagalumeAsyncTask extends AsyncTask<String, Void, JSONObject>{
+
+        @Override
+        protected JSONObject doInBackground(String... params) {
+            JSONParser jsonParser = new JSONParser();
+            return jsonParser.getJSONFromUrl(params[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            exibirProgress(true);
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            super.onPostExecute(jsonObject);
+
+            try{
+                JSONObject letra = (JSONObject) jsonObject.getJSONArray("mus").get(0);
+
+                //SALVANDO OS DADOS NO FIREBASE
+                Hinos hinos = new Hinos();
+                hinos.setUrl(etURL.getText().toString());
+                hinos.setCantor(etCantor.getText().toString());
+                hinos.setLetra(letra.getString("text"));
+                hinos.setTitulo(etHino.getText().toString());
+                hinos.setNumero(etNumero.getText().toString());
+                hinos.salvarHinos();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            exibirProgress(false);
+            dismiss();
+        }
+    }
+
+
+    private void exibirProgress(boolean exibir) {
+        pbHino.setVisibility(exibir ? View.VISIBLE : View.GONE);
+    }
 }

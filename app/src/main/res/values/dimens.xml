@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- NOVAS REGRAS 2.0
+    mrg = margim
+    tv = textView
+    et = EditText
+    pad = padding
+    bt = Button
+    txts = textSize
+
+
+    -->
+    <!-- GLOBAL -->
+    <dimen name="radius_edits">2dp</dimen>
+
+    <!-- LOGIN ACTIVITY -->
+    <dimen name="bt_login_width">280dp</dimen>
+    <dimen name="bt_login_height">55dp</dimen>
+    <dimen name="bt_login_pad_vertical">4dp</dimen>
+    <dimen name="bt_login_pad_horizontal">20dp</dimen>
+    <dimen name="bt_login_face_mrg_bot">105dp</dimen>
+    <dimen name="bt_login_google_mrg_bot">32dp</dimen>
+    <dimen name="bt_login_txts">18sp</dimen>
+
+    <!-- PERFIL ACTIVITY -->
+    <dimen name="tam_img_perfil">100dp</dimen>
+    <dimen name="mrg_top_img_perfil">75dp</dimen>
+    <dimen name="mrg_top_content_layout_perfil">190dp</dimen>
+    <dimen name="pad_horizontal_layout_perfil">25dp</dimen>
+    <dimen name="pad_lft_edits">12dp</dimen>
+    <dimen name="h_edits_perfil">48dp</dimen>
+    <dimen name="mrg_top_edits_perfil">20dp</dimen>
+    <!-- DAQUI PARA BAIXO É OBSOLETO -->
+
+
     <!-- TELA DE LOGIN E VERSICULO-->
     <dimen name="img_logo">200dp</dimen>
     <dimen name="mrg_para_logo">40dp</dimen>
@@ -7,7 +40,7 @@
     <dimen name="tam_tv_versiculo">40sp</dimen>
     <dimen name="img_social_media">50dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="tv_versiculo">22sp</dimen>
+    <dimen name="tv_versiculo">20sp</dimen>
     <dimen name="tam_caixa_versiculo">250dp</dimen>
     <dimen name="info_versiculo">10sp</dimen>
     <dimen name="texto_padrao_botao">21sp</dimen>
@@ -29,7 +62,7 @@
     <dimen name="mrg_top_edits">2dp</dimen>
 
     <!-- PERFIL ACTIVITY -->
-    <dimen name="tam_img_perfil">136dp</dimen>
+    <dimen name="tam_imga_perfil">136dp</dimen>
     <dimen name="tv_mrg_top">12dp</dimen>
     <dimen name="tv_mrg_start">20dp</dimen>
     <dimen name="tv_mrg_curta">3dp</dimen>
@@ -59,5 +92,11 @@
     <!--FRAGMENT CRONOGRAMA-->
     <dimen name="tam_horarios">24sp</dimen>
     <dimen name="tam_desc_evento">21sp</dimen>
+
+    <!--ACTIVITY GALERIA -->
+    <dimen name="mrg_novo_album">10dp</dimen>
+
+    <!--PADRÕES DE COMPONENTES -->
+    <dimen name="txt_botoes_dialogs">16sp</dimen>
 
 </resources>

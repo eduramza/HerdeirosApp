@@ -9,11 +9,11 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,45 +24,48 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.ConfiguracaoFirebase;
 import com.ramattecgmail.rafah.herdeirosapp.Configs.SharedPreferencias;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.AdicionarCardapioFragment;
-import com.ramattecgmail.rafah.herdeirosapp.Fragments.VersiculoFragment;
-import com.ramattecgmail.rafah.herdeirosapp.Models.Galeria;
+import com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.VersiculoFragment;
 import com.ramattecgmail.rafah.herdeirosapp.Models.Usuarios;
 import com.ramattecgmail.rafah.herdeirosapp.R;
 import com.ramattecgmail.rafah.herdeirosapp.Utils.Atalhos;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
             GoogleApiClient.OnConnectionFailedListener{
+
+    private static final String TAG = "FMC Teste";
+
     //Atributos
     CardView cdCalendario, cdRetiro, cdGaleria, cdMocidade;
     private TextView tvRetiro, tvCalendario, tvMocidade, tvGaleria;
-    private FirebaseAuth mAuth;
-    private GoogleApiClient mGoogleApiClient;
     DatabaseReference referenceUser;
     ValueEventListener listenerUser;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //PEGANDO O ID PARA O FIREBASE CLOUD MESSAGING
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.i(TAG, "Refreshed token: " + refreshedToken);
+
         //Instanciando os componentes
-        cdCalendario = (CardView) findViewById(R.id.card_calendario);
-        cdRetiro = (CardView) findViewById(R.id.card_retiro);
-        cdGaleria = (CardView) findViewById(R.id.card_galeria);
-        cdMocidade = (CardView) findViewById(R.id.card_mocidade);
-        tvCalendario = (TextView) findViewById(R.id.tv_calendario);
-        tvRetiro = (TextView) findViewById(R.id.tv_retiro);
-        tvMocidade = (TextView) findViewById(R.id.tv_mocidade);
-        tvGaleria = (TextView) findViewById(R.id.tv_galeria);
+        cdCalendario =  findViewById(R.id.card_calendario);
+        cdRetiro =  findViewById(R.id.card_retiro);
+        cdGaleria =  findViewById(R.id.card_galeria);
+        cdMocidade =  findViewById(R.id.card_mocidade);
+        tvCalendario =  findViewById(R.id.tv_calendario);
+        tvRetiro =  findViewById(R.id.tv_retiro);
+        tvMocidade = findViewById(R.id.tv_mocidade);
+        tvGaleria =  findViewById(R.id.tv_galeria);
 
         Typeface font = Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/action jackson.ttf");
         tvCalendario.setTypeface(font);
@@ -70,9 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvRetiro.setTypeface(font);
         tvGaleria.setTypeface(font);
 
-        //Necessário para fazer o logout
-        mAuth = FirebaseAuth.getInstance();
-
+        //*****Necessário para fazer o logout no Google, caso contrário fará logout apenas no Firebase***
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -83,16 +84,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+        //Necessário para fazer o logout no Google, caso contrário fará logout apenas no Firebase******/
 
         //Trabalhando com os dados do usuário aqui
-        final SharedPreferencias user = new SharedPreferencias(MainActivity.this);
-        referenceUser = ConfiguracaoFirebase.getFirebaseReference().child("USUARIOS").child(user.getCHAVE_ID());
+        //final SharedPreferencias user = new SharedPreferencias(MainActivity.this);
+        //referenceUser = ConfiguracaoFirebase.getFirebaseReference().child("USUARIOS").child(user.getCHAVE_ID());
 
-        listenerUser = new ValueEventListener() {
+        /*listenerUser = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Recuperando os dados de acordo com a classe modelo
-                Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
+                //Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
 
                 Usuarios usuariosM = new Usuarios();
                 if (user.getCHAVE_NOME().toLowerCase().contains("lucas gomes")
@@ -113,16 +115,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 usuariosM.setEmail(user.getCHAVE_EMAIL());
                 usuariosM.setNome(user.getCHAVE_NOME());
                 usuariosM.setId(user.getCHAVE_ID());
-                usuariosM.salvar();
+                usuariosM.atualizar(user.getCHAVE_ID());
 
-                user.salvarUsuarioPreferences(usuariosM.getId(), usuariosM.getNome(), null, usuariosM.getNivel(), usuariosM.getEmail());
+                user.salvarUsuarioPreferences(usuariosM.getId(), usuariosM.getNome(),
+                        null, usuariosM.getNivel(), usuariosM.getEmail(), usuariosM.getApelido());
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        };
+        };*/
 
         //EVENTOS DE CLICKS
         cdRetiro.setOnClickListener(this);
@@ -137,18 +140,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        referenceUser.addValueEventListener(listenerUser);
+        //referenceUser.addValueEventListener(listenerUser);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        referenceUser.removeEventListener(listenerUser);
+        //referenceUser.removeEventListener(listenerUser);
     }
 
     private void signOut(){
-        //firebase
-        mAuth.signOut();
+        FirebaseAuth.getInstance().signOut();
 
         //Google SignOut
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
@@ -160,6 +162,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Deslogado com sucesso!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Intent login = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(login);
     }
 
     //CRIANDO O MENU DE OPÇÕES
@@ -187,6 +192,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(sendIntent);
                 return true;
 
+            case R.id.mn_perfil:
+                Intent perfil = new Intent(MainActivity.this, PerfilActivity.class);
+                startActivity(perfil);
+                return true;
+
             case R.id.mn_sair:
                 signOut();
                 return true;
@@ -211,8 +221,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.card_galeria:
-                //Intent galeria = new Intent(MainActivity.this, GaleriaActivity.class);
-                //startActivity(galeria);
                 Toast.makeText(this, "Em breve!", Toast.LENGTH_SHORT).show();
                 break;
 

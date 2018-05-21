@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubePlayer;
@@ -77,8 +78,9 @@ public class LetraHinosActivity extends YouTubeFailureRecoveryActivity  {
         idHino = CriptografiaBase64.criptografarHino(numero);
 
         //Verifica se há conexão com a internet
-        if (!verificaConexao()){
+        //if (!verificaConexao()){
             //se não tiver conexão então tenta recuperar os dados salvos do FIREBASE
+            // COMENTADO PARA VERIFICAR PORQUE ESTA DANDO ERRO PARA ALGUNS USUÁRIOS
             reference = ConfiguracaoFirebase.getFirebaseReference()
                     .child("MOCIDADE")
                     .child("HINOS")
@@ -100,19 +102,22 @@ public class LetraHinosActivity extends YouTubeFailureRecoveryActivity  {
                 }
             });
 
-        } else {
-            //A String que faz a pesquisa no site do vagalume
-            String uri = Uri.parse("http://api.vagalume.com.br/search.php")
-                    .buildUpon()
-                    .appendQueryParameter("mus", musica)
-                    .appendQueryParameter("art", artista)
-                    .appendQueryParameter("apikey", Atalhos.VAGALUME_KEY)
-                    .build().toString();
+            //Se já estiver salvo no firebase ele não pode tentar a conexão novamente
+            /*if (tvLetra.getText().toString().length() != 0) {
+                //A String que faz a pesquisa no site do vagalume
+                String uri = Uri.parse("http://api.vagalume.com.br/search.php")
+                        .buildUpon()
+                        .appendQueryParameter("mus", musica)
+                        .appendQueryParameter("art", artista)
+                        .appendQueryParameter("apikey", Atalhos.VAGALUME_KEY)
+                        .build().toString();
 
-            if (uri != null) {
-                new LetraHinosActivity.vagalumeAsyncTask().execute(uri);
-            }
-        }
+                if (uri != null && Atalhos.verificarConexao(this) == true) {
+                    new LetraHinosActivity.vagalumeAsyncTask().execute(uri);
+                } else {
+
+                }
+            }*/
 
         //******************EVENTOS RELACIONADOS A BOTTOMNAVIGATION*******************/
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -141,11 +146,18 @@ public class LetraHinosActivity extends YouTubeFailureRecoveryActivity  {
         //******************FIM - EVENTOS RELACIONADOS A BOTTOM NAVIGATION*******************/
     }
 
-    private class vagalumeAsyncTask extends AsyncTask<String, Void, JSONObject> {
+    /*private class vagalumeAsyncTask extends AsyncTask<String, Void, JSONObject> {
         @Override
         protected JSONObject doInBackground(String... params) {
             JSONParser jParser = new JSONParser();
             return jParser.getJSONFromUrl(params[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //acionando a barra de progresso
+            exibirProgress(true);
         }
 
         @Override
@@ -169,8 +181,10 @@ public class LetraHinosActivity extends YouTubeFailureRecoveryActivity  {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            exibirProgress(false);
         }
-    }
+    }*/
 
     @Override
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
@@ -200,18 +214,4 @@ public class LetraHinosActivity extends YouTubeFailureRecoveryActivity  {
 
     }
 
-    /* Função para verificar existência de conexão com a internet
-	 */
-    public  boolean verificaConexao() {
-        boolean conectado;
-        ConnectivityManager conectivtyManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (conectivtyManager.getActiveNetworkInfo() != null
-                && conectivtyManager.getActiveNetworkInfo().isAvailable()
-                && conectivtyManager.getActiveNetworkInfo().isConnected()) {
-            conectado = true;
-        } else {
-            conectado = false;
-        }
-        return conectado;
-    }
 }

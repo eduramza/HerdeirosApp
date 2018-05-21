@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="35dp"
+    android:background="@drawable/bg3"
     tools:context="com.ramattecgmail.rafah.herdeirosapp.Activitys.LoginActivity">
 
+    <Button
+        android:id="@+id/bt_login_face"
+        android:layout_width="@dimen/bt_login_width"
+        android:layout_height="@dimen/bt_login_height"
+        android:paddingTop="@dimen/bt_login_pad_vertical"
+        android:paddingBottom="@dimen/bt_login_pad_vertical"
+        android:paddingLeft="@dimen/bt_login_pad_horizontal"
+        android:layout_marginBottom="@dimen/bt_login_face_mrg_bot"
+        android:layout_gravity="center_horizontal|bottom"
+        android:stateListAnimator="@null"
+        android:elevation="12dp"
+        android:background="@drawable/face_button_login"
+        android:drawableLeft="@drawable/face_btn2"
+        android:text="@string/login_face"
+        android:textSize="@dimen/bt_login_txts"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor" />
 
-    <ImageView
-        android:id="@+id/im_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hdt_logo"
-        android:elevation="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="43dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/sign_in_button" />
+    <Button
+        android:id="@+id/bt_login_google"
+        android:layout_width="@dimen/bt_login_width"
+        android:layout_height="@dimen/bt_login_height"
+        android:paddingLeft="@dimen/bt_login_pad_horizontal"
+        android:paddingBottom="@dimen/bt_login_pad_vertical"
+        android:paddingTop="@dimen/bt_login_pad_vertical"
+        android:layout_marginBottom="@dimen/bt_login_google_mrg_bot"
+        android:layout_gravity="center_horizontal|bottom"
+        android:stateListAnimator="@null"
+        android:elevation="12dp"
+        android:background="@drawable/google_button_login"
+        android:drawableLeft="@drawable/google_btn"
+        android:text="@string/login_google"
+        android:textSize="@dimen/bt_login_txts"
+        android:textAlignment="center"
+        android:textColor="@color/red" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="230dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:elevation="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

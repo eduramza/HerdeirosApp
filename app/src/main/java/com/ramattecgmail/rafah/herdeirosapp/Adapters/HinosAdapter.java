@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ramattecgmail.rafah.herdeirosapp.Models.Hinos;
@@ -23,7 +24,7 @@ public class HinosAdapter extends ArrayAdapter<Hinos> {
     //ATRIBUTOS
     Context context;
     private ArrayList<Hinos> arrayList;
-
+    private ImageView heart;
 
     public HinosAdapter(@NonNull Context c, ArrayList<Hinos> objects) {
         super(c, 0, objects);
@@ -47,11 +48,28 @@ public class HinosAdapter extends ArrayAdapter<Hinos> {
             TextView tvNumero = view.findViewById(R.id.tv_num_hino);
             TextView tvTitulo = view.findViewById(R.id.tv_titulo_hino);
             TextView tvCantor = view.findViewById(R.id.tv_cantor_hino);
+            heart = view.findViewById(R.id.img_heart);
 
             Hinos hinos = arrayList.get(position);
             tvNumero.setText(hinos.getNumero());
             tvCantor.setText(hinos.getCantor());
             tvTitulo.setText(hinos.getTitulo());
+
+            //efeitos com o click de curtir
+            heart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    //trocando as cores do coração - ATENÇÃO !!!! ADICIONAR O ANIMATION AQUI!!!
+                    if (heart.getDrawable().equals(R.drawable.ic_favorite_border)){
+                        heart.setImageResource(R.drawable.ic_favorite_border);
+                    } else {
+                        heart.setImageResource(R.drawable.ic_favorite_border);
+                    }
+
+                }
+            });
+
         }
         return view;
     }

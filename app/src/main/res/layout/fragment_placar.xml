@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="250dp"
     android:layout_height="match_parent"
-    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.PlacarFragment"
+    tools:context="com.ramattecgmail.rafah.herdeirosapp.Fragments.Alerts.PlacarFragment"
     android:orientation="vertical">
 
 

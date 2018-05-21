@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/primaryDarkColor"
-        app:itemIconTint="#FFFFFF"
+        app:itemIconTint="#fff"
         app:itemTextColor="#FFFFFF"
         app:menu="@menu/bottom_menu_hino"
         android:layout_alignParentRight="true">

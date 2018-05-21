@@ -13,7 +13,8 @@ public class Versiculos {
     private String mensagem;
     private String versiculo;
     private String dataPostagem;
-    private String usuPostagem;
+    private String usuPostagem; //na versão 1 essa variavel recebia o nome do usuário que postou
+    private String usuLike;
 
     public Versiculos(){
 
@@ -26,6 +27,33 @@ public class Versiculos {
         reference.child("VERSICULOS")
                 .child(cripto)
                 .setValue(this);
+    }
+
+    public void curtirVersiculo(String idVersiculo, String idUsuario){
+        String cripto = CriptografiaBase64.criptografarVersiculo(idVersiculo);
+
+        DatabaseReference reference = ConfiguracaoFirebase.getFirebaseReference();
+
+        //Salvando a curtida
+        reference.child("VERSICULOS")
+                .child(cripto)
+                .child("LIKES")
+                .child(idUsuario)
+                //.child("idUsulike")
+                .setValue(idUsuario);
+    }
+
+    public void descurtirVersiculo(String idVersiculo, String idUsuario){
+        String cripto = CriptografiaBase64.criptografarVersiculo(idVersiculo);
+
+        DatabaseReference reference = ConfiguracaoFirebase.getFirebaseReference();
+
+        //Removendo curtida
+        reference.child("VERSICULOS")
+                .child(cripto)
+                .child("LIKES")
+                .child(idUsuario)
+                .removeValue();
     }
 
     public String getMensagem() {
@@ -58,5 +86,13 @@ public class Versiculos {
 
     public void setUsuPostagem(String usuPostagem) {
         this.usuPostagem = usuPostagem;
+    }
+
+    public String getUsuLike() {
+        return usuLike;
+    }
+
+    public void setUsuLike(String usuLike) {
+        this.usuLike = usuLike;
     }
 }
